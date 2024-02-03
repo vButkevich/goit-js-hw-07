@@ -74,10 +74,10 @@ const images = [
   },
 ];
 
+/*
 let gallery = document.querySelector('ul.gallery');
 console.log(gallery);
 console.log(images);
-
 images.forEach(image => {
   // let { url, alt } = image;
   let li = document.createElement('li');
@@ -88,3 +88,11 @@ images.forEach(image => {
 
   gallery.append(li);
 });
+*/
+// solution by mentor
+let galleryHTML = images
+  .map(image => {
+    return `<li><img src="${image.url}" alt="${image.alt}" width="360"></li>`;
+  })
+  .join('');
+document.querySelector('ul.gallery').innerHTML = galleryHTML;

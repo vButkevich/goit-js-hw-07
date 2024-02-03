@@ -6,14 +6,18 @@ function handleSubmit(event) {
   event.preventDefault();
   let form = event.target;
   //   console.log(form.elements);
-  const email = form.elements.email.value;
-  const password = form.elements.password.value;
+  const email = form.elements.email.value.trim();
+  const password = form.elements.password.value.trim();
 
   if (email === '' || password === '') {
     return alert('Please fill in all the fields!');
   }
 
-  console.log(`Login: ${email}, Password: ${password}`);
+  const out = {
+    email: email,
+    password: password,
+  };
+  console.log(out);
   form.reset();
 }
 /*
@@ -34,7 +38,8 @@ function handleSubmit(event) {
 
 Обробка відправлення форми form.login-form повинна відбуватися за подією submit.
 Під час відправлення форми сторінка не повинна перезавантажуватися.
-Якщо при сабміті у формі є незаповнені поля, виводь alert з попередженням про те, що 'All form fields must be filled in'. 
+Якщо при сабміті у формі є незаповнені поля, виводь alert з попередженням про те,
+ що 'All form fields must be filled in'. 
 Не додавай на інпути атрибут required, валідація має відбуватися саме через JS.
 Якщо користувач заповнив усі поля і відправив форму, збери значення полів в об'єкт з двома властивостями,
  де ключ — це ім'я інпутів, а значення — відповідні значення цих інпутів, 
